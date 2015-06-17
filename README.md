@@ -13,7 +13,7 @@ export CATALOG_SERVICE_URL=http://46.101.191.124:5984
 
 ##Run locally
 
-`docker run -t -i -p 5005:5005 search-service .`
+`docker run -t -i -p 5006:5006 search-service .`
 
 ##Publish into private registry
 
