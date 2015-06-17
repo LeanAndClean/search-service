@@ -36,7 +36,7 @@ http://46.101.191.124:8080/api/containers?pull=true \
   "environment":{
     "SERVICE_CHECK_SCRIPT":"curl -s http://46.101.191.124:5006/healthcheck",
     "SERVICE_PORT":"5006",
-    "CATALOG_SERVICE_URL":"http://46.101.191.124:5984/products/_all_docs?include_docs=true"
+    "CATALOG_SERVICE_URL":"http://46.101.191.124:5984"
   },
   "hostname":"",
   "domain":"",
