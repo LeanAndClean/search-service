@@ -9,10 +9,10 @@ namespace Search
 
     public class SearchService : ISearchService
     {
-
-        List<Doc> docs = new List<Doc>();
-        CircuitBreaker breaker = new CircuitBreaker();
-        string CATALOG_SERVICE_URL = Environment.GetEnvironmentVariable("CATALOG_SERVICE_URL") ?? "NONE";
+        private List<Doc> docs = new List<Doc>();
+        private CircuitBreaker breaker = new CircuitBreaker();
+        private string CATALOG_SERVICE_URL = Environment.GetEnvironmentVariable("CATALOG_SERVICE_URL") ?? "NONE";
+        private string COVER_SERVICE_URL = Environment.GetEnvironmentVariable("COVER_SERVICE_URL") ?? "NONE";
 
         public SearchService()
         {
@@ -27,7 +27,7 @@ namespace Search
 
             Int32.TryParse(filter.number, out number);
             Int32.TryParse(filter.page, out page);
-            if(number == 0) number = 10;
+            if (number == 0) number = 10;
 
             Console.WriteLine("LOG: where - " + where);
             Console.WriteLine("LOG: page - " + page);
@@ -38,7 +38,7 @@ namespace Search
                     .Where(where)
                     .Skip(page * number)
                     .Take(number)
-                    .Select(x=>(dynamic)x)
+                    .Select(x => (dynamic)x)
                     .ToList();
         }
 
@@ -49,19 +49,27 @@ namespace Search
             try
             {
                 breaker.ExecuteWithRetries(() => {
-                    Console.WriteLine("Try to replicate from: " + CATALOG_SERVICE_URL);
+                    var catalogServiceClient = new RestClient(CATALOG_SERVICE_URL);
+                    var coverServiceClient = new RestClient(COVER_SERVICE_URL);
+                    
+                    Console.WriteLine("Try to replicate from: " + CATALOG_SERVICE_URL);                    
+                    var catalogRequest = new RestRequest("/products/_all_docs?include_docs=true", Method.GET);
+                    var catalogResponse = catalogServiceClient.Execute<Search>(catalogRequest);
+                    if (catalogResponse.Data == null) throw new Exception();
 
-                    var client = new RestClient(CATALOG_SERVICE_URL);
-                    var request = new RestRequest("/products/_all_docs?include_docs=true", Method.GET);
-                    var res = client.Execute<Search>(request);
-                    if(res.Data == null) throw new Exception();
+                    docs = catalogResponse.Data.Rows.Select(x => x.Doc).ToList() ?? new List<Doc>();
 
-                    docs = new List<Doc>();
-                    docs.AddRange(res.Data.Rows.Select(x=>x.Doc).ToList() ?? new List<Doc>());
+                    docs.ForEach(doc => {
+                        Console.WriteLine("Try to get cover for MBID " + doc.MbId + " from " + COVER_SERVICE_URL);                        
+                        var coverRequest = new RestRequest("/images/" + doc.MbId, Method.GET);
+                        var coverResponse = coverServiceClient.Execute<List<string>>(coverRequest);
+                        
+                        doc.Covers = coverResponse.Data ?? new List<string>(0);
+                    });
 
-                    result = new {message = docs.Count() + " doc(s) replicated"};
+                    result = new { message = docs.Count + " doc(s) replicated" };
                     Console.WriteLine(result);
-                    docs.ForEach(x => Console.Write("{0};\r\n", x));
+                    docs.ForEach(Console.WriteLine);
 
                 }, 3, TimeSpan.FromSeconds(2));
 

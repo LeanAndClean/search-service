@@ -5,6 +5,7 @@
 ```
 export SERVICE_PORT=5006
 export CATALOG_SERVICE_URL=http://46.101.191.124:5984
+export COVER_SERVICE_URL=http://46.101.191.124:5012
 ```
 
 ##Build
@@ -18,25 +19,27 @@ export CATALOG_SERVICE_URL=http://46.101.191.124:5984
 ##Publish into private registry
 
 ```
-docker tag search-service 46.101.191.124:5000/search-service:0.0.9
-docker push 46.101.191.124:5000/search-service:0.0.9
+docker tag search-service 46.101.191.124:5000/search-service:0.0.10
+docker push 46.101.191.124:5000/search-service:0.0.10
 ```
 
 ##Deploy
 
+###OSX/Linux
 ```
 curl -X POST \
 -H 'Content-Type: application/json' \
 -H 'X-Service-Key: pdE4.JVg43HyxCEMWvsFvu6bdFV7LwA7YPii' \
 http://46.101.191.124:8080/api/containers?pull=true \
 -d '{  
-  "name":"46.101.191.124:5000/search-service:0.0.9",
+  "name":"46.101.191.124:5000/search-service:0.0.10",
   "cpus":0.1,
   "memory":128,
   "environment":{
     "SERVICE_CHECK_SCRIPT":"curl -s http://46.101.191.124:5006/healthcheck",
     "SERVICE_PORT":"5006",
-    "CATALOG_SERVICE_URL":"http://46.101.191.124:5984"
+    "CATALOG_SERVICE_URL":"http://46.101.191.124:5984",
+    "COVER_SERVICE_URL":"http://46.101.191.124:5012"
   },
   "hostname":"",
   "domain":"",
@@ -61,6 +64,51 @@ http://46.101.191.124:8080/api/containers?pull=true \
 }'
 ```
 
+###Windows
+```
+$Uri = "http://46.101.191.124:8080/api/containers?pull=true"
+
+$Headers = @{
+  "X-Service-Key" = "pdE4.JVg43HyxCEMWvsFvu6bdFV7LwA7YPii"
+  "Content-Type" = "application/json"
+}
+
+$Body = @"
+{  
+  "name":"46.101.191.124:5000/search-service:0.0.10",
+  "cpus":0.1,
+  "memory":128,
+  "environment":{
+    "SERVICE_CHECK_SCRIPT":"curl -s http://46.101.191.124:5006/healthcheck",
+    "SERVICE_PORT":"5006",
+    "CATALOG_SERVICE_URL":"http://46.101.191.124:5984",
+    "COVER_SERVICE_URL":"http://46.101.191.124:5012"
+  },
+  "hostname":"",
+  "domain":"",
+  "type":"service",
+  "network_mode":"bridge",
+  "links":{},
+  "volumes":[],
+  "bind_ports":[  
+    {  
+       "proto":"tcp",
+       "host_ip":null,
+       "port":5006,
+       "container_port":5006
+    }
+  ],
+  "labels":[],
+  "publish":false,
+  "privileged":false,
+  "restart_policy":{  
+    "name":"no"
+  }
+}
+"@
+
+Invoke-RestMethod -Uri $Uri -Method Post -Headers $Headers -Body $Body
+```
 
 ##API
 

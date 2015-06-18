@@ -915,10 +915,10 @@
         }
       },
       "files": [
+        "readme.txt",
         "RestSharp.105.1.0.nupkg",
         "RestSharp.105.1.0.nupkg.sha512",
         "RestSharp.nuspec",
-        "readme.txt",
         "lib/net35/RestSharp.dll",
         "lib/net35/RestSharp.xml",
         "lib/net35-client/RestSharp.dll",

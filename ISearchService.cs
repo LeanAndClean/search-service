@@ -23,10 +23,11 @@ namespace Search
         public string Title {get; set;}
         public string Artist {get; set;}
         public float Price {get; set;}
+        public List<string> Covers {get; set;}
         
         public override string ToString()
         {
-            return "Id: " + Id + " MbId: " + MbId + " Title: " + Title + " Artist: " + Artist + " Price: " + Price;
+            return "Id: " + Id + " MbId: " + MbId + " Title: " + Title + " Artist: " + Artist + " Price: " + Price + " Covers: " + (Covers ?? new List<string>(0)).Count;
         }
     }
 
