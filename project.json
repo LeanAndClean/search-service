@@ -1,16 +1,18 @@
 {
-    "dependencies": {
-        "Kestrel": "1.0.0-beta4",
-        "Microsoft.AspNet.Owin": "1.0.0-beta4",
-        "Nancy": "1.2.0",
-        "ReliabilityPatterns":"1.0.0.21",
-        "DynamicQuery":"1.0.0",
-        "RestSharp":"105.1.0 "
-    },
-    "commands": {
-        "kestrel": "Microsoft.AspNet.Hosting --server Kestrel --server.urls http://localhost:5006"
-    },
-    "frameworks": {
-        "dnx451": {}
-    }   
+  "dependencies": {
+    "DynamicQuery": "1.0.0",
+    "Kestrel": "1.0.0-beta4",
+    "Microsoft.AspNet.Owin": "1.0.0-beta4",
+    "Microsoft.Net.Http": "2.2.29",
+    "Nancy": "1.2.0",
+    "Newtonsoft.Json": "6.0.8",
+    "ReliabilityPatterns": "1.0.0.9",
+    "System.Linq.Dynamic": "1.0.4"
+  },
+  "commands": {
+    "kestrel": "Microsoft.AspNet.Hosting --server Kestrel --server.urls http://localhost:5006"
+  },
+  "frameworks": {
+    "dnx451": { }
+  }
 }

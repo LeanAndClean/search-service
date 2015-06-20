@@ -3,12 +3,14 @@
   "version": -9998,
   "projectFileDependencyGroups": {
     "": [
+      "DynamicQuery >= 1.0.0",
       "Kestrel >= 1.0.0-beta4",
       "Microsoft.AspNet.Owin >= 1.0.0-beta4",
+      "Microsoft.Net.Http >= 2.2.29",
       "Nancy >= 1.2.0",
-      "ReliabilityPatterns >= 1.0.0.21",
-      "DynamicQuery >= 1.0.0",
-      "RestSharp >= 105.1.0"
+      "Newtonsoft.Json >= 6.0.8",
+      "ReliabilityPatterns >= 1.0.0.9",
+      "System.Linq.Dynamic >= 1.0.4"
     ],
     "DNX,Version=v4.5.1": []
   },
@@ -20,20 +22,15 @@
         "DNX,Version=v4.5.1": {
           "dependencies": {},
           "frameworkAssemblies": [],
-          "runtimeAssemblies": [
-            "lib/35/Dynamic.dll"
-          ],
-          "compileAssemblies": [
-            "lib/35/Dynamic.dll"
-          ]
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
         }
       },
       "files": [
         "DynamicQuery.1.0.nupkg",
         "DynamicQuery.1.0.nupkg.sha512",
         "DynamicQuery.nuspec",
-        "content/Dynamic Expressions.html",
-        "lib/35/Dynamic.dll"
+        "content/Dynamic Expressions.html"
       ]
     },
     "Kestrel/1.0.0-beta4": {
@@ -477,6 +474,101 @@
         "lib/dnxcore50/Microsoft.AspNet.WebUtilities.xml"
       ]
     },
+    "Microsoft.Bcl/1.1.10": {
+      "serviceable": false,
+      "sha": "+tTqoh/M1pyL8El3qLy30EcwnAtyvFoDZJtdG9Cbg/WdFbh4N8kyrq198XHuEL7lnJbeD0DRO8jcX5IIOh05cQ==",
+      "frameworks": {
+        "DNX,Version=v4.5.1": {
+          "dependencies": {
+            "Microsoft.Bcl.Build": "1.0.14"
+          },
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
+        }
+      },
+      "files": [
+        "License-Stable.rtf",
+        "Microsoft.Bcl.1.1.10.nupkg",
+        "Microsoft.Bcl.1.1.10.nupkg.sha512",
+        "Microsoft.Bcl.nuspec",
+        "lib/monoandroid/_._",
+        "lib/monotouch/_._",
+        "lib/net40/ensureRedirect.xml",
+        "lib/net40/System.IO.xml",
+        "lib/net40/System.Runtime.xml",
+        "lib/net40/System.Threading.Tasks.xml",
+        "lib/net45/_._",
+        "lib/portable-net40+sl4+win8/ensureRedirect.xml",
+        "lib/portable-net40+sl4+win8/System.IO.xml",
+        "lib/portable-net40+sl4+win8/System.Runtime.xml",
+        "lib/portable-net40+sl4+win8/System.Threading.Tasks.xml",
+        "lib/portable-net40+sl4+win8+wp71+wpa81/ensureRedirect.xml",
+        "lib/portable-net40+sl4+win8+wp71+wpa81/System.IO.xml",
+        "lib/portable-net40+sl4+win8+wp71+wpa81/System.Runtime.xml",
+        "lib/portable-net40+sl4+win8+wp71+wpa81/System.Threading.Tasks.xml",
+        "lib/portable-net40+sl4+win8+wp8+wpa81/ensureRedirect.xml",
+        "lib/portable-net40+sl4+win8+wp8+wpa81/System.IO.xml",
+        "lib/portable-net40+sl4+win8+wp8+wpa81/System.Runtime.xml",
+        "lib/portable-net40+sl4+win8+wp8+wpa81/System.Threading.Tasks.xml",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/ensureRedirect.xml",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/System.IO.xml",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/System.Runtime.xml",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/System.Threading.Tasks.xml",
+        "lib/portable-net40+win8/ensureRedirect.xml",
+        "lib/portable-net40+win8/System.IO.xml",
+        "lib/portable-net40+win8/System.Runtime.xml",
+        "lib/portable-net40+win8/System.Threading.Tasks.xml",
+        "lib/portable-net40+win8+wp8+wpa81/ensureRedirect.xml",
+        "lib/portable-net40+win8+wp8+wpa81/System.IO.xml",
+        "lib/portable-net40+win8+wp8+wpa81/System.Runtime.xml",
+        "lib/portable-net40+win8+wp8+wpa81/System.Threading.Tasks.xml",
+        "lib/portable-net45+win8+wp8+wpa81/_._",
+        "lib/portable-net45+win8+wpa81/_._",
+        "lib/portable-net451+win81/_._",
+        "lib/portable-net451+win81+wpa81/_._",
+        "lib/portable-win81+wp81+wpa81/_._",
+        "lib/sl4/System.IO.xml",
+        "lib/sl4/System.Runtime.xml",
+        "lib/sl4/System.Threading.Tasks.xml",
+        "lib/sl4-windowsphone71/ensureRedirect.xml",
+        "lib/sl4-windowsphone71/System.IO.xml",
+        "lib/sl4-windowsphone71/System.Runtime.xml",
+        "lib/sl4-windowsphone71/System.Threading.Tasks.xml",
+        "lib/sl5/System.IO.xml",
+        "lib/sl5/System.Runtime.xml",
+        "lib/sl5/System.Threading.Tasks.xml",
+        "lib/win8/_._",
+        "lib/wp8/_._",
+        "lib/wpa81/_._",
+        "lib/Xamarin.iOS10/_._"
+      ]
+    },
+    "Microsoft.Bcl.Build/1.0.14": {
+      "serviceable": false,
+      "sha": "cDLKSvNvRa519hplsbSoYqO69TjdDIhfjtKUM0g20/nVROoWsGav9KCI9HtnGjLmdV1+TcUUDhbotcllibjPEA==",
+      "frameworks": {
+        "DNX,Version=v4.5.1": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
+        }
+      },
+      "files": [
+        "License-Stable.rtf",
+        "Microsoft.Bcl.Build.1.0.14.nupkg",
+        "Microsoft.Bcl.Build.1.0.14.nupkg.sha512",
+        "Microsoft.Bcl.Build.nuspec",
+        "content/net40/_._",
+        "content/netcore45/_._",
+        "content/portable-net40+win8+sl4+wp71+wpa81/_._",
+        "content/sl4/_._",
+        "content/sl4-windowsphone71/_._",
+        "tools/Install.ps1",
+        "tools/Uninstall.ps1"
+      ]
+    },
     "Microsoft.Framework.Caching.Interfaces/1.0.0-beta4": {
       "serviceable": true,
       "sha": "46cDLfehLNidWL55zPvLOinR/G3Z/hPtr6memnVenrt2BNPWmqujeXQaMyfklsYblxzeMhoE1ZhYsNuQdvj8zg==",
@@ -785,6 +877,61 @@
         "lib/net45/Microsoft.Framework.WebEncoders.Core.xml"
       ]
     },
+    "Microsoft.Net.Http/2.2.29": {
+      "serviceable": false,
+      "sha": "fc4CPEewJ30Xgal+fSq1lYIBt582A7eKlAL7O4HXiYAiTp2VTnA4osSvk7T2n8aS4xTCPVJusQk3yKLT0XSpkg==",
+      "frameworks": {
+        "DNX,Version=v4.5.1": {
+          "dependencies": {
+            "Microsoft.Bcl": "1.1.10",
+            "Microsoft.Bcl.Build": "1.0.14"
+          },
+          "frameworkAssemblies": [
+            "System.Net.Http",
+            "System.Net.Http.WebRequest"
+          ],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
+        }
+      },
+      "files": [
+        "License-Stable.rtf",
+        "Microsoft.Net.Http.2.2.29.nupkg",
+        "Microsoft.Net.Http.2.2.29.nupkg.sha512",
+        "Microsoft.Net.Http.nuspec",
+        "lib/monoandroid/System.Net.Http.Extensions.XML",
+        "lib/monoandroid/System.Net.Http.Primitives.xml",
+        "lib/monotouch/System.Net.Http.Extensions.XML",
+        "lib/monotouch/System.Net.Http.Primitives.xml",
+        "lib/net40/ensureRedirect.xml",
+        "lib/net40/System.Net.Http.Extensions.XML",
+        "lib/net40/System.Net.Http.Primitives.xml",
+        "lib/net40/System.Net.Http.WebRequest.xml",
+        "lib/net40/System.Net.Http.xml",
+        "lib/net45/ensureRedirect.xml",
+        "lib/net45/System.Net.Http.Extensions.XML",
+        "lib/net45/System.Net.Http.Primitives.xml",
+        "lib/portable-net40+sl4+win8+wp71+wpa81/ensureRedirect.xml",
+        "lib/portable-net40+sl4+win8+wp71+wpa81/System.Net.Http.Extensions.XML",
+        "lib/portable-net40+sl4+win8+wp71+wpa81/System.Net.Http.Primitives.XML",
+        "lib/portable-net40+sl4+win8+wp71+wpa81/System.Net.Http.xml",
+        "lib/portable-net45+win8/ensureRedirect.xml",
+        "lib/portable-net45+win8/System.Net.Http.Extensions.XML",
+        "lib/portable-net45+win8/System.Net.Http.Primitives.xml",
+        "lib/portable-net45+win8+wpa81/ensureRedirect.xml",
+        "lib/portable-net45+win8+wpa81/System.Net.Http.Extensions.XML",
+        "lib/portable-net45+win8+wpa81/System.Net.Http.Primitives.xml",
+        "lib/sl4-windowsphone71/System.Net.Http.Extensions.XML",
+        "lib/sl4-windowsphone71/System.Net.Http.Primitives.XML",
+        "lib/sl4-windowsphone71/System.Net.Http.xml",
+        "lib/win8/System.Net.Http.Extensions.XML",
+        "lib/win8/System.Net.Http.Primitives.xml",
+        "lib/wpa81/System.Net.Http.Extensions.XML",
+        "lib/wpa81/System.Net.Http.Primitives.xml",
+        "lib/Xamarin.iOS10/System.Net.Http.Extensions.XML",
+        "lib/Xamarin.iOS10/System.Net.Http.Primitives.xml"
+      ]
+    },
     "Microsoft.Net.Http.Headers/1.0.0-beta4": {
       "serviceable": true,
       "sha": "dhN5q9MbljcAqWTv1GIpeAzB8HB7l9YTrN+zl/KXUj8OP4cTd2LZ7qeZ0tqDHkxOD+GyZwi/SnbqztKSjTnVOg==",
@@ -840,9 +987,9 @@
         "lib/net40/Nancy.xml"
       ]
     },
-    "Newtonsoft.Json/6.0.6": {
+    "Newtonsoft.Json/6.0.8": {
       "serviceable": false,
-      "sha": "w26uZNyCG5VeoKiEOJ4+9/o8koSofLKwHl7WLreIcp0U6r57L7WiRXmjp8MTKFw6dYNZ9AE0lw69WYbIhUsU9Q==",
+      "sha": "7ut47NDedTW19EbL0JpFDYUP62fcuz27hJrehCDNajdCS5NtqL+E39+7Um3OkNc2wl2ym7K8Ln5eNuLus6mVGQ==",
       "frameworks": {
         "DNX,Version=v4.5.1": {
           "dependencies": {},
@@ -856,8 +1003,8 @@
         }
       },
       "files": [
-        "Newtonsoft.Json.6.0.6.nupkg",
-        "Newtonsoft.Json.6.0.6.nupkg.sha512",
+        "Newtonsoft.Json.6.0.8.nupkg",
+        "Newtonsoft.Json.6.0.8.nupkg.sha512",
         "Newtonsoft.Json.nuspec",
         "lib/net20/Newtonsoft.Json.dll",
         "lib/net20/Newtonsoft.Json.xml",
@@ -876,9 +1023,9 @@
         "tools/install.ps1"
       ]
     },
-    "ReliabilityPatterns/1.0.0.21": {
+    "ReliabilityPatterns/1.0.0.9": {
       "serviceable": false,
-      "sha": "Z49U1UEkD8IQBVdPM0c1fnx7ZQL4IgAGSk/saCXxPJ7UMxqJUzxCWTrNVYnT95vra+MsAxSeIbcWn+LJpRQLPw==",
+      "sha": "mWd/IEsKrECLtojhaOqURVLi++Bx0DrfQlciC23BfuBAt87N21+00LHP1qa8sv/xfou+a4ZuR7exDQHRD+C7Xw==",
       "frameworks": {
         "DNX,Version=v4.5.1": {
           "dependencies": {},
@@ -892,57 +1039,33 @@
         }
       },
       "files": [
-        "ReliabilityPatterns.1.0.0.21.nupkg",
-        "ReliabilityPatterns.1.0.0.21.nupkg.sha512",
+        "ReliabilityPatterns.1.0.0.9.nupkg",
+        "ReliabilityPatterns.1.0.0.9.nupkg.sha512",
         "ReliabilityPatterns.nuspec",
         "lib/net40/ReliabilityPatterns.dll",
         "lib/net40/ReliabilityPatterns.xml"
       ]
     },
-    "RestSharp/105.1.0": {
+    "System.Linq.Dynamic/1.0.4": {
       "serviceable": false,
-      "sha": "2DRH1cpTOJwesBOwQ0cIhVHUmupbRKt+tdSatfdvndvsawsGMIEgrbq8yv6g3GM1MRVcb37bT8LACVFsqITDmg==",
+      "sha": "WfRPE4I3T4ED6T3SJGkPQxCfmS6mG2c9ww3OeXf8f+bLFL/k19fSH7jR6SZfw2r9F2wA0PZjFNbeTYVdYuTD8w==",
       "frameworks": {
         "DNX,Version=v4.5.1": {
           "dependencies": {},
           "frameworkAssemblies": [],
           "runtimeAssemblies": [
-            "lib/net452/RestSharp.dll"
+            "lib/net40/System.Linq.Dynamic.dll"
           ],
           "compileAssemblies": [
-            "lib/net452/RestSharp.dll"
+            "lib/net40/System.Linq.Dynamic.dll"
           ]
         }
       },
       "files": [
-        "readme.txt",
-        "RestSharp.105.1.0.nupkg",
-        "RestSharp.105.1.0.nupkg.sha512",
-        "RestSharp.nuspec",
-        "lib/net35/RestSharp.dll",
-        "lib/net35/RestSharp.xml",
-        "lib/net35-client/RestSharp.dll",
-        "lib/net35-client/RestSharp.xml",
-        "lib/net4/RestSharp.dll",
-        "lib/net4/RestSharp.xml",
-        "lib/net4-client/RestSharp.dll",
-        "lib/net4-client/RestSharp.xml",
-        "lib/net45/RestSharp.dll",
-        "lib/net45/RestSharp.xml",
-        "lib/net45-client/RestSharp.dll",
-        "lib/net45-client/RestSharp.xml",
-        "lib/net451/RestSharp.dll",
-        "lib/net451/RestSharp.xml",
-        "lib/net451-client/RestSharp.dll",
-        "lib/net451-client/RestSharp.xml",
-        "lib/net452/RestSharp.dll",
-        "lib/net452/RestSharp.xml",
-        "lib/net452-client/RestSharp.dll",
-        "lib/net452-client/RestSharp.xml",
-        "lib/sl4/RestSharp.Silverlight.dll",
-        "lib/sl4/RestSharp.Silverlight.xml",
-        "lib/windowsphone8/RestSharp.WindowsPhone.dll",
-        "lib/windowsphone8/RestSharp.WindowsPhone.xml"
+        "System.Linq.Dynamic.1.0.4.nupkg",
+        "System.Linq.Dynamic.1.0.4.nupkg.sha512",
+        "System.Linq.Dynamic.nuspec",
+        "lib/net40/System.Linq.Dynamic.dll"
       ]
     }
   }
