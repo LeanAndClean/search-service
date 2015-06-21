@@ -18,8 +18,8 @@ export DISCOVERY_SERVICE_URLS=http://46.101.138.192:8500;http://46.101.191.124:8
 ##Publish into private registry
 
 ```
-docker tag search-service 46.101.191.124:5000/search-service:0.0.12
-docker push 46.101.191.124:5000/search-service:0.0.12
+docker tag search-service 46.101.191.124:5000/search-service:0.0.13
+docker push 46.101.191.124:5000/search-service:0.0.13
 ```
 
 ##Deploy
@@ -31,7 +31,7 @@ curl -X POST \
 -H 'X-Service-Key: pdE4.JVg43HyxCEMWvsFvu6bdFV7LwA7YPii' \
 http://46.101.191.124:8080/api/containers?pull=true \
 -d '{  
-  "name":"46.101.191.124:5000/search-service:0.0.12",
+  "name":"46.101.191.124:5000/search-service:0.0.13",
   "cpus":0.1,
   "memory":128,
   "environment":{
@@ -73,7 +73,7 @@ $Headers = @{
 
 $Body = @"
 {  
-  "name":"46.101.191.124:5000/search-service:0.0.12",
+  "name":"46.101.191.124:5000/search-service:0.0.13",
   "cpus":0.1,
   "memory":128,
   "environment":{
