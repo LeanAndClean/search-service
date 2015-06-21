@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "DynamicQuery": "1.0.0",
     "Kestrel": "1.0.0-beta4",
     "Microsoft.AspNet.Owin": "1.0.0-beta4",
     "Microsoft.Net.Http": "2.2.29",

@@ -3,6 +3,7 @@ namespace Search
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Linq.Dynamic;
     using ReliabilityPatterns;
     
     public class SearchService : ISearchService
@@ -32,7 +33,7 @@ namespace Search
 
             return docs
                     .AsQueryable()
-                    .Filter(where)
+                    .Where(where)
                     .Skip(page * number)
                     .Take(number)
                     .Select(x => (dynamic)x)
@@ -75,14 +76,6 @@ namespace Search
                 Console.WriteLine(result);
                 return result;
             }
-        }
-    }
-
-    public static class Extensions
-    {
-        public static IQueryable<T> Filter<T>(this IQueryable<T> sequence, string filter)
-        {
-            return System.Linq.Dynamic.DynamicQueryable.Where(sequence, filter);
         }
     }
 }

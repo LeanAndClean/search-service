@@ -3,7 +3,6 @@
   "version": -9998,
   "projectFileDependencyGroups": {
     "": [
-      "DynamicQuery >= 1.0.0",
       "Kestrel >= 1.0.0-beta4",
       "Microsoft.AspNet.Owin >= 1.0.0-beta4",
       "Microsoft.Net.Http >= 2.2.29",
@@ -15,24 +14,6 @@
     "DNX,Version=v4.5.1": []
   },
   "libraries": {
-    "DynamicQuery/1.0": {
-      "serviceable": false,
-      "sha": "aojqKg+MhKOhX9Em7H94bzeJ+IMpw/EgLp6S0UzRyCUxTh4KDsGreIsGMrOM+JqUk4qLhcRANwPZt0Yx2kMHeQ==",
-      "frameworks": {
-        "DNX,Version=v4.5.1": {
-          "dependencies": {},
-          "frameworkAssemblies": [],
-          "runtimeAssemblies": [],
-          "compileAssemblies": []
-        }
-      },
-      "files": [
-        "DynamicQuery.1.0.nupkg",
-        "DynamicQuery.1.0.nupkg.sha512",
-        "DynamicQuery.nuspec",
-        "content/Dynamic Expressions.html"
-      ]
-    },
     "Kestrel/1.0.0-beta4": {
       "serviceable": false,
       "sha": "8f2aCgtDh5ONWS7K2EYy23s3nnPvZS7rPimYHJ1DAvF7HG5GSmSC+SkKx6ZtBOjhU9agneWjDwj5jGjdPWfjsA==",
