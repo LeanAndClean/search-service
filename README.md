@@ -4,7 +4,7 @@
 
 ```
 export SERVICE_PORT=5006
-export DISCOVERY_SERVICE_URLS=http://46.101.138.192:8500;http://46.101.191.124:8500
+export DISCOVERY_SERVICE_URLS=http://46.101.138.192:8500,http://46.101.191.124:8500
 ```
 
 ##Build
@@ -36,7 +36,7 @@ http://46.101.191.124:8080/api/containers?pull=true \
   "environment":{
     "SERVICE_CHECK_SCRIPT":"curl -s http://46.101.191.124:5006/healthcheck",
     "SERVICE_PORT":"5006",
-    "DISCOVERY_SERVICE_URLS":"http://46.101.138.192:8500;http://46.101.191.124:8500",
+    "DISCOVERY_SERVICE_URLS":"http://46.101.138.192:8500,http://46.101.191.124:8500",
     "LOG":"true"
   },
   "hostname":"",
