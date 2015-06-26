@@ -53,7 +53,7 @@ namespace Search
                     var search = serviceClient.Get<Search>("couchdb", "/products/_all_docs?include_docs=true");
                     if (search == null) throw new Exception();
 
-                    docs = search.Rows.Select(x => x.Doc).ToList() ?? new List<Doc>();
+                    docs = search.Rows.Select(x => x.Doc).Select(x => { x.Id = x.MbId; return x; }).ToList() ?? new List<Doc>();
 
                     docs.ForEach(doc => {
                         Console.WriteLine("Try to get cover for MBID " + doc.MbId + " from cover service");
