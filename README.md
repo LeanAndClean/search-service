@@ -7,19 +7,27 @@ export SERVICE_PORT=5006
 export DISCOVERY_SERVICE_URLS=http://46.101.138.192:8500,http://46.101.191.124:8500
 ```
 
+##Deploy configuration
+
+```
+export SERVICE_VERSION=0.0.14
+export PUBLISH_SERVICE=<ip>:<port>
+export DEPLOY_SERVICE=<ip>:<port>
+```
+
 ##Build
 
 `docker build -t search-service .`
 
 ##Run locally
 
-`docker run -t -i -p 5006:5006 search-service .`
+`docker run -t -i -p $SERVICE_PORT:$SERVICE_PORT search-service .`
 
 ##Publish into private registry
 
 ```
-docker tag search-service 46.101.191.124:5000/search-service:0.0.14
-docker push 46.101.191.124:5000/search-service:0.0.14
+docker tag search-service $PUBLISH_SERVICE/search-service:$SERVICE_VERSION
+docker push $PUBLISH_SERVICE/search-service:$SERVICE_VERSION
 ```
 
 ##Deploy
@@ -28,14 +36,14 @@ docker push 46.101.191.124:5000/search-service:0.0.14
 curl -X POST \
 -H 'Content-Type: application/json' \
 -H 'X-Service-Key: pdE4.JVg43HyxCEMWvsFvu6bdFV7LwA7YPii' \
-http://46.101.191.124:8080/api/containers?pull=true \
+http://$DEPLOY_SERVICE/api/containers?pull=true \
 -d '{  
-  "name":"46.101.191.124:5000/search-service:0.0.14",
+  "name":"'$PUBLISH_SERVICE'/search-service:'$SERVICE_VERSION'",
   "cpus":0.1,
-  "memory":128,
+  "memory":64,
   "environment":{
-    "SERVICE_CHECK_SCRIPT":"curl -s http://46.101.191.124:5006/healthcheck",
-    "SERVICE_PORT":"5006",
+    "SERVICE_CHECK_SCRIPT":"curl -s http://$SERVICE_CONTAINER_IP:$SERVICE_CONTAINER_PORT/healthcheck",
+    "SERVICE_PORT":"$SERVICE_PORT",
     "DISCOVERY_SERVICE_URLS":"http://46.101.138.192:8500,http://46.101.191.124:8500",
     "LOG":"true"
   },
@@ -49,8 +57,8 @@ http://46.101.191.124:8080/api/containers?pull=true \
     {  
        "proto":"tcp",
        "host_ip":null,
-       "port":5006,
-       "container_port":5006
+       "port":'$SERVICE_PORT',
+       "container_port":'$SERVICE_PORT'
     }
   ],
   "labels":[],
@@ -69,7 +77,7 @@ http://46.101.191.124:8080/api/containers?pull=true \
 ```
 curl -X GET \
 -H 'Content-Type: application/json' \
-http://localhost:5006/healthcheck
+http://localhost:$SERVICE_PORT/healthcheck
 ```
 
 ###Search Items
@@ -77,7 +85,7 @@ http://localhost:5006/healthcheck
 ```
 curl -X GET \
 -H 'Content-Type: application/json' \
-http://localhost:5006
+http://localhost:$SERVICE_PORT
 ```
 
 **Search with filter**
@@ -86,7 +94,7 @@ http://localhost:5006
 curl -X GET \
 -H 'Content-Type: application/json' \
 --data-urlencode 'where=Name="Peter" or Name="Max"' \
-http://localhost:5006
+http://localhost:$SERVICE_PORT
 ```
 
 **Search with pagination**
@@ -95,7 +103,7 @@ http://localhost:5006
 curl -X GET \
 -H 'Content-Type: application/json' \
 --data-urlencode 'number=2&page=0' \
-http://localhost:5006
+http://localhost:$SERVICE_PORT
 ```
 
 ###Replicate
@@ -105,5 +113,5 @@ http://localhost:5006
 ```
 curl -X GET \
 -H 'Content-Type: application/json' \
-http://localhost:5006/replicate
+http://localhost:$SERVICE_PORT/replicate
 ```
