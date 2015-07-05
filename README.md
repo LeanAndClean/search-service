@@ -1,4 +1,4 @@
-##Search Service
+#Search Service
 
 ##Service configuration
 
@@ -44,7 +44,7 @@ http://$DEPLOY_SERVICE/api/containers?pull=true \
   "environment":{
     "SERVICE_CHECK_SCRIPT":"curl -s http://$SERVICE_CONTAINER_IP:$SERVICE_CONTAINER_PORT/healthcheck",
     "SERVICE_PORT":"$SERVICE_PORT",
-    "DISCOVERY_SERVICE_URLS":"http://46.101.138.192:8500,http://46.101.191.124:8500",
+    "DISCOVERY_SERVICE_URLS":"'$DISCOVERY_SERVICE_URLS'",
     "LOG":"true"
   },
   "hostname":"",
