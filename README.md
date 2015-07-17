@@ -1,6 +1,6 @@
 #Search Service
 
-##Service configuration
+##Configuration
 
 ```
 export SERVICE_PORT=5006
