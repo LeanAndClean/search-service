@@ -20,7 +20,7 @@ export SERVICE_VERSION=0.0.14
 ##Publish into private registry
 
 ```
-docker tag search-service $PUBLISH_SERVICE/search-service:$SERVICE_VERSION
+docker tag search-service:latest $PUBLISH_SERVICE/search-service:$SERVICE_VERSION
 docker push $PUBLISH_SERVICE/search-service:$SERVICE_VERSION
 ```
 
