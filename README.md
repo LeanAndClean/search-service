@@ -5,6 +5,7 @@
 ```
 export SERVICE_PORT=5006
 export DISCOVERY_SERVICE_URLS=http://46.101.138.192:8500,http://46.101.191.124:8500
+export PUBLISH_SERVICE=<ip>:<port>
 export SERVICE_VERSION=0.0.14
 ```
 
